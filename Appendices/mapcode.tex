@@ -1,0 +1,118 @@
+%Python code highlighting
+\begin{listing}[ht]
+\begin{minted}
+[
+frame=lines,
+framesep=2mm,
+baselinestretch=1.2,
+bgcolor=LightGray,
+fontsize=\footnotesize,
+linenos
+]
+{python}
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+class Import extends CI_Controller {
+
+	public function index()
+	{
+            if($this->session->userdata('username')){
+                $this->load->helper('form');
+                $this->load->library('form_validation');
+                $this->load->view('import/index');
+            }else{
+                redirect('/user/login');
+            }
+            
+	}
+        
+        public function upload()
+        { 
+            $this->load->model('import_model');
+            $this->load->helper('file');
+            $user_data = $this->session->userdata('id');
+           
+            //$path = './upload/'.$user_data;
+            $path = './upload/temp';
+            if(!is_dir($path)) //create the folder if it's not already exists
+            {
+              mkdir($path,0777,TRUE);
+            } 
+            $this->load->helper('form');
+            $config['upload_path'] = $path;
+            $config['allowed_types'] = '*';
+            $config['max_size']	= '100000';
+            
+            $this->load->library('upload', $config);
+            if ( ! $this->upload->do_upload('file_upload'))
+            {
+                    $error = array('error' => $this->upload->display_errors());
+                    $this->load->view('import/index', $error);
+            }
+            else
+            {
+                    $data = array('upload_data' => $this->upload->data());
+                    
+                    $file_content = $this->csv_to_array(dirname(__FILE__).'/../../'.'upload/temp/'.$data['upload_data']['file_name']);
+                    
+                    
+                    $path = './upload/'.$user_data;
+                    if(!is_dir($path)) //create the folder if it's not already exists
+                    {
+                      mkdir($path,0777,TRUE);
+                    } 
+                    $data['path'] = str_replace("temp",$user_data,$data['upload_data']['full_path']);
+                    
+                    $data['import_id'] = $this->import_model->upload($data);
+                    $fp = fopen(dirname(__FILE__).'/../../'.'upload/'.$user_data.'/'.$data['upload_data']['file_name'], 'w');
+                    $header = array_keys($file_content[0]);
+                    fputcsv($fp, $header);
+                    foreach ($file_content as $content) {
+                        fputcsv($fp, $content);
+                    }
+                    fclose($fp);
+                    //unlink(dirname(__FILE__).'/../../'.'upload/temp/'.$data['upload_data']['file_name']);
+                    
+                    $this->load->view('import/index', $data);
+                    
+            }
+
+    }
+    
+    private function csv_to_array($filename='', $delimiter=',')
+    {
+    if(!file_exists($filename) || !is_readable($filename)) {
+        return FALSE;
+    }
+    $header = NULL;
+    $data = array();
+    if (($handle = fopen($filename, 'r')) !== FALSE)
+    {
+            while (($row = fgetcsv($handle, 1000, $delimiter)) !== FALSE)
+            {
+            	if(!$header)
+                	    $header = $row;
+            	else{
+                    $header_count = count($header);
+                    $row_count = count($row);
+                    if($header_count == $row_count){
+                        $data[] = array_combine($header, $row);
+                    }  else {
+                        $this->session->set_flashdata('success_msg', 'Your file format is invalid!');
+                        redirect('/import');
+                    }
+                } 
+            
+            }
+        fclose($handle);
+    }
+    
+    return $data;
+    } 
+        
+}
+
+
+\end{minted}
+\caption{Example with line numbers enabled}
+\end{listing}

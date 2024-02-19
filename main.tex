@@ -1,0 +1,335 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Doctoral Thesis 
+%----------------------------------------------------------------------------------------
+
+\documentclass[12pt, oneside]{Thesis} % The default font size and one-sided printing (no margin offsets)
+\usepackage{float}
+\usepackage{graphicx}
+\graphicspath{{Pictures/}} % Specifies the directory where pictures are stored
+\usepackage{dirtytalk}
+
+
+
+%---------- codding packages
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\usepackage{minted}
+\usepackage{xcolor}
+\usepackage{import}
+
+\definecolor{LightGray}{gray}{0.9}
+%\definecolor{DarkGray}{gray}{0.1}
+
+%\pagecolor{DarkGray}
+
+\usemintedstyle{friendly}
+
+%New colors defined below
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\usepackage[square, numbers, comma, sort&compress]{natbib} % Use the natbib reference package - read up on this to edit the reference style; if you want text (e.g. Smith et al., 2012) for the in-text references (instead of numbers), remove 'numbers' 
+\hypersetup{urlcolor=blue, colorlinks=true} % Colors hyperlinks in blue - change to black if annoying
+\title{\ttitle} % Defines the thesis title - don't touch this
+
+\begin{document}
+
+\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
+
+\setstretch{1.5} % Line spacing of 1.3
+
+% Define the page headers using the FancyHdr package and set up for one-sided printing
+\fancyhead{} % Clears all page headers and footers
+\rhead{\thepage} % Sets the right side header to show the page number
+\lhead{} % Clears the left side page header
+
+\pagestyle{fancy} % Finally, use the "fancy" page style to implement the FancyHdr headers
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % New command to make the lines in the title page
+
+% PDF meta-data
+\hypersetup{pdftitle={\ttitle}}
+\hypersetup{pdfsubject=\subjectname}
+\hypersetup{pdfauthor=\authornames}
+\hypersetup{pdfkeywords=\keywordnames}
+
+
+%---------------------------------------
+% Cover page
+%---------------------------------------
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+
+
+%\HRule \\[0.4cm] % Horizontal line
+%{\huge \bfseries \ttitle}\\[0.4cm] % fff
+%\HRule \\[1.5cm] % Horizontal line
+
+\begin{titlepage}
+    \begin{center}
+        %\vspace*{1cm}
+        
+        \HRule \\[0.4cm] % Horizontal line
+        {\huge \bfseries \ttitle}\\[0.4cm] % fff
+        \HRule \\[1.5cm] % Horizontal line
+      
+        
+        \vspace{3.5cm}
+        \textbf{By \\}
+        \vspace{0.5cm}
+        \textbf{Wajid Khan}
+        
+        \vfill
+     A thesis submitted in partial fulfilment for the \\
+degree of Doctor of Philosophy\\
+in the \\
+Department of Computer Science and Technology \\
+University of Bedfordshire \\
+
+        
+        \vspace{0.8cm}
+        December 2015
+        
+    \end{center}
+\end{titlepage}
+
+%----------------------------------------------------------------------------------------
+
+
+%----------------------------------------------------------------------------------------
+%	QUOTATION PAGE
+%----------------------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+%	ABSTRACT PAGE
+%----------------------------------------------------------------------------------------
+
+\addtotoc{Abstract} % Add the "Abstract" page entry to the Contents
+
+\abstract{} % Add a gap in the Contents, for aesthetics
+The arrival of E-commerce systems have contributed greatly to the economy and have played a vital role in collecting a huge amount of transactional data. It is becoming difficult day by day to analyse business and consumer behaviour with the production of such a colossal volume of data. Enterprise 2.0 has the ability to store and create an enormous amount of transactional data; the purpose for which data was collected could quite easily be disassociated as the essential information goes unnoticed in large and complex data sets. The information overflow is a major contributor to the dilemma. In the current environment, where hardware systems have the ability to store such large volumes of data and the software systems have the capability of substantial data production, data exploration problems are on the rise. The problem is not with the production or storage of data but with the effectiveness of the systems and techniques where essential information could be retrieved from complex data sets in a comprehensive and logical approach as the data questions are asked.\\
+
+Using the existing information retrieval systems and visualisation tools, the more specific questions are asked, the more definitive and unambiguous are the visualised results that could be attained, but when it comes to complex and large data sets there are no elementary or simple questions. Therefore a profound information visualisation model and system is required to analyse complex data sets through data analysis and information visualisation, to make it possible for the decision makers to identify the expected and discover the unexpected.\\
+
+In order to address complex data problems, a comprehensive and robust visualisation model and system is introduced. The visualisation model consists of four major layers, (i) acquisition and data analysis, (ii) data representation, (iii) user and computer interaction and (iv) results repositories. There are major contributions in all four layers but particularly in data acquisition and data representation. Multiple attribute and dimensional data visualisation techniques are identified in Enterprise 2.0 and Web 2.0 environment. Transactional tagging and linked data are unearthed which is a novel contribution in information visualisation.  \\
+
+The visualisation model and system is first realised as a tangible software system, which is then validated through different and large types of data sets in three experiments. The first experiment is based on the large Royal Mail postcode data set. The second experiment is based on a large transactional data set in an enterprise environment while the same data set is processed in a non-enterprise environment. The system interaction facilitated through new mashup techniques enables users to interact more fluently with data and the representation layer. The results are exported into various re-usable formats and retrieved for further comparison and analysis purposes.\\
+
+The information visualisation model introduced in this research is a compact process for any size and type of data set which is a major contribution in information visualisation and data analysis. Advanced data representation techniques are employed using various web mashup technologies. New visualisation techniques have emerged from the research such as transactional tagging visualisation and linked data visualisation. The information visualisation model and system is extremely useful in addressing complex data problems with strategies that are easy to interact with and integrate.\\
+
+
+
+\clearpage % Start a new page
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%	DEDICATION
+%----------------------------------------------------------------------------------------
+
+\setstretch{1.3} % Return the line spacing back to 1.3
+
+\pagestyle{empty} % Page style needs to be empty for this page
+
+\dedicatory{Dedicated to my parents for their unconditional love and support.\ldots} % Dedication text
+
+\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
+
+%----------------------------------------------------------------------------------------
+%	ACKNOWLEDGEMENTS
+%----------------------------------------------------------------------------------------
+
+\setstretch{1.3} % Reset the line-spacing to 1.3 for body text (if it has changed)
+
+\acknowledgements{\addtocontents{toc}{\vspace{1em}} % Add a gap in the Contents, for aesthetics
+
+I am thankful to my supervisors Dr.Fiaz Hussain and Professor Edmond C. Prakash for seeing me through this PhD. Their help is greatly appreciated. The unquestionable belief that they had in my abilities and motivation was absolutely vital in tough and challenging times. Nevertheless, they always managed to provide constructive, sceptical and critical suggestions, which were an invaluable source of challenges and motivation for improvement.
+
+Thanks to the University of Bedfordshire and the Research Graduate School and specially IRAC and my colleagues and friends at the institute, all are very inspirational people and a joy to work with.
+
+I am also very thankful to my wife for her continuous support and understanding during this long and difficult phase of my life. My beautiful children Emad and Gulalay are a big joy, they were a source of inspiration during my PhD.
+
+Finally, I am greatly indebted to my parents for their everlasting help, dedication, and support, their consistent motivation and affection kept me in the throughout my PhD. I am very proud and privileged to have them as my parents. All my respect and gratitude goes to my parents.
+
+}
+\clearpage % Start a new page
+
+%----------------------------------------------------------------------------------------
+%	LIST OF CONTENTS/FIGURES/TABLES PAGES
+%----------------------------------------------------------------------------------------
+
+\pagestyle{fancy} % The page style headers have been "empty" all this time, now use the "fancy" headers as defined before to bring them back
+
+\lhead{\emph{Contents}} % Set the left side page header to "Contents"
+\tableofcontents % Write out the Table of Contents
+
+\lhead{\emph{List of Figures}} % Set the left side page header to "List of Figures"
+\listoffigures % Write out the List of Figures
+
+%\lhead{\emph{List of Tables}} % Set the left side page header to "List of Tables"
+%\listoftables % Write out the List of Tables
+
+%----------------------------------------------------------------------------------------
+%	ABBREVIATIONS
+%----------------------------------------------------------------------------------------
+
+\clearpage % Start a new page
+
+\setstretch{1.5} % Set the line spacing to 1.5, this makes the following tables easier to read
+
+\lhead{\emph{Abbreviations}} % Set the left side page header to "Abbreviations"
+\listofsymbols{ll} % Include a list of Abbreviations (a table of two columns)
+{
+
+World Wide Web (WWW)\\
+Small and Medium Size Business (SME)\\
+Asynchronous JavaScript + XML (AJAX)\\
+Java Script Object Notation (JaSON)\\
+Compliance, Governance and Oversight Council (CGOC)\\
+SAP Software and Solutions (SAP)\\
+International Business Machines (IBM)\\
+Hewlett-Packard (HP)\\
+Digital Multimeter (DMM)\\
+Structured Query Language (SQL)\\
+Hypertext Markup Language (HTML)\\
+Cascading Style Sheets (CSS)\\
+Hypertext Preprocessor (PHP)\\
+Extensible Markup Language (XML)\\
+Application Program Interface (API)\\
+Uniform Resource Locator (URL)\\
+HyperText Transfer Protocol (HTTP)\\
+Uniplexed Information and Computing Service (UNIX)\\
+Prolog Server Pages (PSP)\\
+Institute for Operations Research and Management Science (INFORMS)\\
+Comma Separated Values (CSV)\\
+Information Technology (IT)\\
+Really Simple Syndication (RSS)\\
+Web-Oriented Architecture (WOA)\\
+National Health Service (NHS)\\
+Service Oriented Approach (SOA)\\
+Simple Object Access Protocol - (SOAP)\\
+Representational State Transfer (REST)\\
+Learning Management System (LMS) \\
+Knowledge Management (KM)\\
+Postcode Address File (PAF)\\
+Joint Photographic Experts Group (JPEG)\\
+Graphics Interchange Format (GIF)\\
+Portable Network Graphics (PNG)\\
+Portable Document Format (PDF)\\
+
+
+
+%\textbf{Acronym} & \textbf{W}hat (it) \textbf{S}tands \textbf{F}or \\
+}
+
+
+
+
+%-------------------------------------------------------------------------------------------
+%	DECLARATION PAGE
+%	Your institution may give you a different text to place here
+%----------------------------------------------------------------------------------------
+
+\Declaration{
+
+\addtocontents{toc}{\vspace{1em}} % Add a gap in the Contents, for aesthetics
+
+I, \authornames, declare that this thesis titled, '\ttitle' and the work presented in it are my own. I confirm that:
+
+\begin{itemize} 
+\item[\tiny{$\blacksquare$}] This work was done wholly or mainly while in candidature for a research degree at this University.
+\item[\tiny{$\blacksquare$}] Where any part of this thesis has previously been submitted for a degree or any other qualification at this University or any other institution, this has been clearly stated.
+\item[\tiny{$\blacksquare$}] Where I have consulted the published work of others, this is always clearly attributed.
+\item[\tiny{$\blacksquare$}] Where I have quoted from the work of others, the source is always given. With the exception of such quotations, this thesis is entirely my own work.
+\item[\tiny{$\blacksquare$}] I have acknowledged all main sources of help.
+\item[\tiny{$\blacksquare$}] Where the thesis is based on work done by myself jointly with others, I have made clear exactly what was done by others and what I have contributed myself.\\
+\end{itemize}
+ 
+Signed:\\
+\rule[1em]{25em}{0.5pt} % This prints a line for the signature
+ 
+Date:\\
+\rule[1em]{25em}{0.5pt} % This prints a line to write the date
+}
+
+\clearpage % Start a new page
+%----------------------------------------------
+% PUBLICATIONS
+%----------------------------------------------
+\addtotoc{List of Publications} 
+\lhead{\emph{List of Publications}} % 
+{ \huge\bf List of Publications}
+
+\textbf{Conference Papers}\\
+Khan, Wajid; Hussain, Fiaz and Prakash, Edmond C, \textit{Data analysis through information visualisation for eGoverments and eBusinesses.} IEEE 2013 Sixth International Conference on Developments in eSystems Engineering. Dubai UAE, DeSE 2013.
+
+Khan, Wajid; Hussain, Fiaz and Prakash, Edmond C, \textit{Intelligent techniques for data mining.} International Conference on Computer Games, Multimedia & Allied Technology (CGAT). Proceedings. Global Science and Technology Forum, 2015.
+
+\textbf{Journal Paper}\\
+Khan, Wajid; Hussain, Fiaz and Prakash, Edmond C, \textit{Information visualisation and data analysis through Visualixer.} International Journal of Innovative and Emerging Development, 2014. 
+
+
+\textbf{Book Chapter}\\
+Khan, Wajid; Hussain, Fiaz and Prakash, Edmond C, \textit{Data analysis in Web 2.0 through data mashup systems.} International Conference on Computer Games, Multimedia & Allied Technology (CGAT). Handbook of Research on Trends and Future Directions in Big Data and Web Intelligence. IGI Global, 2014
+
+
+\clearpage % Start a new page
+%----------------------------------------------------------------------------------------
+%	THESIS CONTENT - CHAPTERS
+%----------------------------------------------------------------------------------------
+
+\mainmatter % Begin numeric (1,2,3...) page numbering
+
+\pagestyle{fancy} % Return the page headers back to the "fancy" style
+
+% Include the chapters of the thesis as separate files from the Chapters folder
+% Uncomment the lines as you write the chapters
+
+\input{Chapters/Chapter1}
+\input{Chapters/Chapter2}
+\input{Chapters/Chapter3}
+\input{Chapters/Chapter4} 
+\input{Chapters/Chapter5} 
+\input{Chapters/Chapter6} 
+\input{Chapters/Chapter7} 
+\input{Chapters/Chapter8}
+
+\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
+
+\backmatter
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+%--- this bibliography formatting
+
+\label{Bibliography}
+
+\lhead{\emph{Bibliography}} % Change the page header to say "Bibliography"
+
+\bibliographystyle{unsrtnat} % Use the "unsrtnat" BibTeX style for formatting the Bibliography
+
+\bibliography{Bibliography}
+%\bibliography{second}% The references (bibliography) information are stored in the file named "Bibliography.bib"
+%----------------------------------------------------------------------------------------
+%	THESIS CONTENT - APPENDICES
+%----------------------------------------------------------------------------------------
+
+\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
+
+\appendix % Cue to tell LaTeX that the following 'chapters' are Appendices
+
+% Include the appendices of the thesis as separate files from the Appendices folder
+% Uncomment the lines as you write the Appendices
+
+\input{Appendices/AppendixA}
+%\input{Appendices/AppendixB}
+%\input{Appendices/AppendixC}
+
+
+
+\end{document}  
